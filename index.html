@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Merry Christmas</title>
+    <title>Golden Christmas</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Three.js -->
@@ -27,9 +27,9 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-color: #050505;
+            background-color: #080500; /* 深金黑色背景 */
             font-family: 'Lato', sans-serif;
-            color: #e2e8f0;
+            color: #fff8e1; /* 暖白色字体 */
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
@@ -59,15 +59,15 @@
 
         h1 {
             font-family: 'Cinzel', serif;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.9); /* 更强的金色文字光晕 */
-            color: #ffd700;
+            text-shadow: 0 0 35px rgba(255, 215, 0, 1.0); /* 增强金色光晕 */
+            color: #fffacd;
         }
 
         .glass-panel {
-            background: rgba(10, 20, 15, 0.75);
+            background: rgba(20, 15, 5, 0.75); /* 暖色调玻璃背景 */
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
         }
         
         .instruction-icon {
@@ -96,63 +96,62 @@
         <!-- Header -->
         <div class="flex justify-between items-start">
             <div class="glass-panel p-6 rounded-xl max-w-md transition-all duration-700 transform translate-y-0 opacity-100" id="intro-panel">
-                <h1 class="text-3xl text-yellow-400 mb-2 font-bold tracking-widest">Merry Christmas</h1>
-                <p class="text-gray-300 text-xs mb-6 leading-relaxed border-l-2 border-yellow-600 pl-3">
-                    请开启摄像头，用手势掌控魔法
+                <h1 class="text-3xl text-yellow-200 mb-2 font-bold tracking-widest">Golden Christmas</h1>
+                <p class="text-yellow-100/80 text-xs mb-6 leading-relaxed border-l-2 border-yellow-500 pl-3">
+                    请开启摄像头，用手势唤醒流金魔法
                 </p>
                 
                 <div class="space-y-4">
                     <div class="flex items-center gap-4">
-                        <div class="instruction-icon bg-green-900/40 text-green-400 border-green-500/30">
+                        <div class="instruction-icon bg-yellow-900/40 text-yellow-200 border-yellow-500/30">
                             ✊
                         </div>
                         <div>
-                            <p class="text-green-100 text-sm font-bold uppercase tracking-wide">握拳 (Fist)</p>
-                            <p class="text-gray-400 text-xs">聚合圣诞树</p>
+                            <p class="text-yellow-100 text-sm font-bold uppercase tracking-wide">握拳 (Fist)</p>
+                            <p class="text-yellow-100/60 text-xs">凝聚金辉</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <div class="instruction-icon bg-yellow-900/40 text-yellow-400 border-yellow-500/30">
+                        <div class="instruction-icon bg-amber-900/40 text-amber-200 border-amber-500/30">
                             🖐
                         </div>
                         <div>
-                            <p class="text-yellow-100 text-sm font-bold uppercase tracking-wide">张开手 (Open)</p>
-                            <p class="text-gray-400 text-xs">掌心控制旋转</p>
+                            <p class="text-amber-100 text-sm font-bold uppercase tracking-wide">张开手 (Open)</p>
+                            <p class="text-amber-100/60 text-xs">流光漫舞</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
-                        <div class="instruction-icon bg-red-900/40 text-red-400 border-red-500/30">
+                        <div class="instruction-icon bg-orange-900/40 text-orange-200 border-orange-500/30">
                             👌
                         </div>
                         <div>
-                            <p class="text-red-100 text-sm font-bold uppercase tracking-wide">捏合 (Pinch)</p>
-                            <p class="text-gray-400 text-xs">食指瞄准抓取</p>
+                            <p class="text-orange-100 text-sm font-bold uppercase tracking-wide">捏合 (Pinch)</p>
+                            <p class="text-orange-100/60 text-xs">撷取记忆</p>
                         </div>
                     </div>
                 </div>
 
-                <button id="start-btn" class="ui-element mt-8 w-full py-3 bg-gradient-to-r from-yellow-700 to-yellow-900 hover:from-yellow-600 hover:to-yellow-800 text-white font-serif tracking-widest text-sm uppercase rounded shadow-lg shadow-black/50 transition-all border border-yellow-600/30">
-                    开启体验
+                <button id="start-btn" class="ui-element mt-8 w-full py-3 bg-gradient-to-r from-yellow-600 via-amber-600 to-yellow-800 hover:from-yellow-500 hover:to-yellow-700 text-white font-serif tracking-widest text-sm uppercase rounded shadow-lg shadow-black/50 transition-all border border-yellow-400/30">
+                    开启金色庆典
                 </button>
-                <p id="loading-text" class="hidden text-xs text-center mt-3 text-yellow-500 animate-pulse tracking-wide">正在校准传感器...</p>
+                <p id="loading-text" class="hidden text-xs text-center mt-3 text-yellow-400 animate-pulse tracking-wide">正在注入魔法...</p>
             </div>
 
             <!-- Upload Control -->
-            <div class="glass-panel p-4 rounded-full ui-element hover:bg-white/10 transition-all cursor-pointer group active:scale-95" onclick="document.getElementById('photo-upload').click()">
+            <div class="glass-panel p-4 rounded-full ui-element hover:bg-yellow-900/30 transition-all cursor-pointer group active:scale-95" onclick="document.getElementById('photo-upload').click()">
                 <div class="flex flex-col items-center justify-center w-12 h-12">
-                    <span class="text-2xl text-gray-400 group-hover:text-yellow-400 transition-colors">📷</span>
+                    <span class="text-2xl text-yellow-600 group-hover:text-yellow-300 transition-colors">📷</span>
                 </div>
-                <!-- 允许选择多个图片，支持 jpg, png, webp, mp4 -->
                 <input type="file" id="photo-upload" multiple accept="image/*, video/mp4, video/webm, video/ogg" class="hidden">
             </div>
         </div>
 
         <!-- Feedback HUD -->
         <div class="flex flex-col items-center mb-8 gap-2">
-            <div id="gesture-feedback" class="glass-panel px-10 py-3 rounded-full text-yellow-400 font-serif tracking-widest text-sm opacity-0 transition-opacity duration-300">
+            <div id="gesture-feedback" class="glass-panel px-10 py-3 rounded-full text-yellow-300 font-serif tracking-widest text-sm opacity-0 transition-opacity duration-300">
                 SYSTEM STANDBY
             </div>
-            <p class="text-xs text-gray-500 font-mono opacity-50 uppercase">Use Index Finger to Aim</p>
+            <p class="text-xs text-yellow-700/50 font-mono opacity-50 uppercase">Use Index Finger to Aim</p>
         </div>
     </div>
 
@@ -167,10 +166,10 @@
         const CONFIG = {
             particleCount: 1600,
             colors: {
-                green: 0x2F4F4F,
-                gold: 0xFFD700,
-                red: 0xB22222,
-                white: 0xFFFFFF
+                base: 0xB8860B,    // Dark Goldenrod (Deep Gold/Bronze) - Replaces Green
+                highlight: 0xFFD700, // Pure Gold - Brightest
+                accent: 0xFFAE42,   // Yellow Orange / Sunset Gold - Replaces Red
+                sparkle: 0xFFF8DC   // Cornsilk - White Gold sparkles
             },
             treeHeight: 35,
             treeRadius: 14,
@@ -208,10 +207,10 @@
         const init = () => {
             const container = document.getElementById('canvas-container');
 
-            // Scene
+            // Scene - Warmer background
             scene = new THREE.Scene();
-            scene.fog = new THREE.FogExp2(0x050505, 0.015);
-            scene.background = new THREE.Color(0x050505);
+            scene.fog = new THREE.FogExp2(0x080500, 0.015); // Dark Golden Fog
+            scene.background = new THREE.Color(0x080500);
 
             // Camera
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -224,10 +223,9 @@
                 logarithmicDepthBuffer: true
             });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            // Cap pixel ratio at 2 for mobile performance
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 0.6; 
+            renderer.toneMappingExposure = 0.8; // Slightly brighter for gold
             renderer.outputColorSpace = THREE.SRGBColorSpace;
             
             maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
@@ -236,28 +234,30 @@
             // Post Processing
             const renderScene = new RenderPass(scene, camera);
             
-            // Bloom - 增强辉光
+            // Bloom - Gold Glow
             bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-            bloomPass.threshold = 0.92; 
-            bloomPass.strength = 2.5; // 提升辉光基础强度 (1.0 -> 2.5)
-            bloomPass.radius = 0.7;   // 增加光晕半径
+            bloomPass.threshold = 0.85; // Lower threshold to make more gold glow
+            bloomPass.strength = 2.8; 
+            bloomPass.radius = 0.8;
 
             composer = new EffectComposer(renderer);
             composer.addPass(renderScene);
             composer.addPass(bloomPass);
 
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
+            // Lighting - Warm Golden Lights
+            const ambientLight = new THREE.AmbientLight(0xffeebb, 0.1);
             scene.add(ambientLight);
             
-            // Warm Gold Spotlight - 增强亮度
-            const spotLight = new THREE.SpotLight(0xffd700, 3500); // 增强聚光灯 (2000 -> 3500)
+            // Main Golden Spotlight
+            const spotLight = new THREE.SpotLight(0xffaa00, 4000); 
             spotLight.position.set(20, 50, 20);
             spotLight.decay = 2;
             spotLight.distance = 200;
+            spotLight.penumbra = 1;
             scene.add(spotLight);
             
-            const rimLight = new THREE.SpotLight(0x4455ff, 800);
+            // Rim Light (Cooler gold/white)
+            const rimLight = new THREE.SpotLight(0xffd700, 1000);
             rimLight.position.set(-20, 20, -20);
             scene.add(rimLight);
 
@@ -274,7 +274,7 @@
         const createCursor = () => {
             const geometry = new THREE.RingGeometry(0.8, 1, 32);
             const material = new THREE.MeshBasicMaterial({ 
-                color: 0xffffff, 
+                color: 0xffd700, // Gold cursor
                 transparent: true, 
                 opacity: 0.8,
                 side: THREE.DoubleSide,
@@ -286,44 +286,49 @@
             scene.add(cursorMesh);
         };
 
-        // --- Particle System ---
+        // --- Particle System (Golden Theme) ---
         const createParticles = () => {
-            // Gold Material - 超强自发光
-            const matGold = new THREE.MeshStandardMaterial({ 
-                color: CONFIG.colors.gold, 
+            // 1. Highlight Gold (Spheres) - The brightest points
+            const matHighlight = new THREE.MeshStandardMaterial({ 
+                color: CONFIG.colors.highlight, 
                 metalness: 1.0, 
                 roughness: 0.1, 
-                emissive: 0xffaa00,
-                emissiveIntensity: 6.0 // 大幅提升金球自发光 (3.0 -> 6.0)
+                emissive: 0xffd700,
+                emissiveIntensity: 3.0
             });
             
-            const matGreen = new THREE.MeshStandardMaterial({ 
-                color: CONFIG.colors.green, 
-                metalness: 0.2, 
-                roughness: 0.8 
+            // 2. Base Gold/Bronze (Cubes) - The "Leaf" body
+            const matBase = new THREE.MeshStandardMaterial({ 
+                color: CONFIG.colors.base, 
+                metalness: 0.9, 
+                roughness: 0.4,
+                emissive: 0x8B4513,
+                emissiveIntensity: 0.2
             });
             
-            const matRed = new THREE.MeshStandardMaterial({ 
-                color: CONFIG.colors.red, 
-                metalness: 0.5, 
+            // 3. Accent Amber/Copper (Cylinders) - Richness
+            const matAccent = new THREE.MeshStandardMaterial({ 
+                color: CONFIG.colors.accent, 
+                metalness: 0.8, 
                 roughness: 0.2, 
-                emissive: 0xff0000,
-                emissiveIntensity: 4.0 
+                emissive: 0xff8c00, // Dark Orange emission
+                emissiveIntensity: 1.5 
             });
 
             const geomSphere = new THREE.SphereGeometry(0.35, 12, 12);
             const geomCube = new THREE.BoxGeometry(0.6, 0.6, 0.6);
             const geomCyl = new THREE.CylinderGeometry(0.1, 0.1, 1, 8);
             
-            const meshGold = new THREE.InstancedMesh(geomSphere, matGold, 400);
-            const meshGreen = new THREE.InstancedMesh(geomCube, matGreen, 800);
-            const meshRed = new THREE.InstancedMesh(geomCyl, matRed, 400);
+            // More "Leaf" particles for volume
+            const meshHighlight = new THREE.InstancedMesh(geomSphere, matHighlight, 400);
+            const meshBase = new THREE.InstancedMesh(geomCube, matBase, 900); // Increased base count
+            const meshAccent = new THREE.InstancedMesh(geomCyl, matAccent, 500);
 
-            scene.add(meshGold);
-            scene.add(meshGreen);
-            scene.add(meshRed);
+            scene.add(meshHighlight);
+            scene.add(meshBase);
+            scene.add(meshAccent);
 
-            const distribute = (mesh, type, offsetIndex) => {
+            const distribute = (mesh, offsetIndex) => {
                 const count = mesh.count;
                 const dummy = new THREE.Object3D();
 
@@ -359,9 +364,9 @@
                 }
             };
 
-            distribute(meshGold, 'gold', 0);
-            distribute(meshGreen, 'green', 1);
-            distribute(meshRed, 'red', 2);
+            distribute(meshHighlight, 0);
+            distribute(meshBase, 1);
+            distribute(meshAccent, 2);
         };
 
         // --- Photo/Video System ---
@@ -395,11 +400,17 @@
             pMesh.position.z = 0.08; 
             pMesh.name = "photo_surface"; 
             
-            // Frame Plane
-            const fWidth = width + 1; 
-            const fHeight = height + 2.5; 
+            // Frame Plane - Golden Frame
+            const fWidth = width + 0.8; 
+            const fHeight = height + 2.0; 
             const fGeo = new THREE.PlaneGeometry(fWidth, fHeight);
-            const fMat = new THREE.MeshBasicMaterial({ color: 0xeeeeee, side: THREE.DoubleSide });
+            // Golden Metal Frame Material
+            const fMat = new THREE.MeshStandardMaterial({ 
+                color: 0xE6C200, // Gold
+                metalness: 0.9,
+                roughness: 0.2,
+                side: THREE.DoubleSide 
+            });
             const fMesh = new THREE.Mesh(fGeo, fMat);
             
             pMesh.position.y = (fHeight - height) / 2 - 0.5;
@@ -457,7 +468,7 @@
                         tex.colorSpace = THREE.SRGBColorSpace;
                         createPhoto(tex, i);
                     }, undefined, () => {
-                        createFallbackCard(i, "Noel");
+                        createFallbackCard(i, "Golden");
                     });
                 }
             });
@@ -467,7 +478,7 @@
             const canvas = document.createElement('canvas');
             canvas.width = 512; canvas.height = 512;
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#C41E3A'; ctx.fillRect(0,0,512,512);
+            ctx.fillStyle = '#DAA520'; ctx.fillRect(0,0,512,512); // Golden background
             ctx.fillStyle = '#fff'; 
             ctx.font = '60px Arial';
             ctx.textAlign = 'center';
@@ -480,8 +491,7 @@
         // --- Logic Update ---
         const updateState = (delta, time) => {
             
-            // 动态辉光：聚焦时关闭，平时开启强辉光(2.5)
-            const targetBloomStrength = (STATE.mode === 'FOCUS') ? 0.0 : 2.5;
+            const targetBloomStrength = (STATE.mode === 'FOCUS') ? 0.3 : 2.8;
             bloomPass.strength += (targetBloomStrength - bloomPass.strength) * 4.0 * delta;
 
             const dummy = new THREE.Object3D();
@@ -518,10 +528,10 @@
 
                     if (STATE.isPinching) {
                         cursorMesh.scale.set(0.5, 0.5, 0.5);
-                        cursorMesh.material.color.set(0xff0000);
+                        cursorMesh.material.color.set(0xff4500); // Orange Red on pinch
                     } else {
                         cursorMesh.scale.set(1, 1, 1);
-                        cursorMesh.material.color.set(0xffffff);
+                        cursorMesh.material.color.set(0xffd700); // Gold
                     }
 
                     // Rotation from Palm Center
@@ -744,13 +754,13 @@
                         STATE.mode = 'FOCUS';
                     }
                 }
-                updateFeedback("PINCH: GRAB MEMORY", "red");
+                updateFeedback("PINCH: GRAB MEMORY", "orange");
             } else if (gesture === 'FIST') {
                 STATE.isPinching = false;
                 STATE.mode = 'TREE';
                 if(focusedPhoto && focusedPhoto.userData.video) focusedPhoto.userData.video.muted = true;
                 focusedPhoto = null;
-                updateFeedback("FIST: ASSEMBLE", "green");
+                updateFeedback("FIST: ASSEMBLE", "gold");
             } else if (gesture === 'OPEN') {
                 STATE.isPinching = false;
                 if (STATE.mode === 'FOCUS') {
@@ -766,10 +776,10 @@
 
         const updateFeedback = (text, colorKey) => {
             const colors = {
-                red: "text-red-400 border-red-500/50 shadow-red-500/30",
-                green: "text-green-400 border-green-500/50 shadow-green-500/30",
-                yellow: "text-yellow-400 border-yellow-500/50 shadow-yellow-500/30",
-                gray: "text-gray-400 border-gray-500/20 shadow-none"
+                orange: "text-orange-300 border-orange-500/50 shadow-orange-500/30",
+                gold: "text-yellow-300 border-yellow-500/50 shadow-yellow-500/30",
+                yellow: "text-amber-200 border-amber-500/50 shadow-amber-500/30",
+                gray: "text-gray-500 border-gray-600/20 shadow-none"
             };
             feedbackEl.textContent = text;
             feedbackEl.className = `glass-panel px-10 py-3 rounded-full font-serif tracking-widest text-sm transition-all duration-300 border shadow-lg ${colors[colorKey]}`;
