@@ -181,8 +181,8 @@
         const STATE = {
             mode: 'TREE', 
             handDetected: false,
-            handPosition: { x: 0, y: 0 },   // Palm for Rotation
-            cursorPosition: { x: 0, y: 0 }, // Index for Cursor
+            handPosition: { x: 0, y: 0 },   // Palm
+            cursorPosition: { x: 0, y: 0 }, // Index Tip
             rotation: 0,
             targetRotation: 0,
             photos: [],
@@ -586,7 +586,7 @@
                         if (STATE.mode === 'FOCUS') {
                             scaleTarget = 0.5;
                         } else if (group === hoveredPhoto) {
-                            scaleTarget = 1.2;
+                            scaleTarget = 1.15;
                             const dir = camera.position.clone().sub(target).normalize();
                             target = target.clone().add(dir.multiplyScalar(2));
                         }
