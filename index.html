@@ -59,7 +59,7 @@
 
         h1 {
             font-family: 'Cinzel', serif;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.9); /* 更强的金色文字光晕 */
             color: #ffd700;
         }
 
@@ -168,7 +168,7 @@
             particleCount: 1600,
             colors: {
                 green: 0x2F4F4F,
-                gold: 0xFFF700, // 调整为更纯的亮黄色 (Bright Yellow)
+                gold: 0xFFD700,
                 red: 0xB22222,
                 white: 0xFFFFFF
             },
@@ -227,7 +227,7 @@
             // Cap pixel ratio at 2 for mobile performance
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 0.6; // Low exposure for rich colors
+            renderer.toneMappingExposure = 0.6; 
             renderer.outputColorSpace = THREE.SRGBColorSpace;
             
             maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
@@ -236,11 +236,11 @@
             // Post Processing
             const renderScene = new RenderPass(scene, camera);
             
-            // Bloom - Warm/Neutral
+            // Bloom - 增强辉光
             bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-            bloomPass.threshold = 0.92; // Prevent photo bloom
-            bloomPass.strength = 1.0; 
-            bloomPass.radius = 0.5;
+            bloomPass.threshold = 0.92; 
+            bloomPass.strength = 2.5; // 提升辉光基础强度 (1.0 -> 2.5)
+            bloomPass.radius = 0.7;   // 增加光晕半径
 
             composer = new EffectComposer(renderer);
             composer.addPass(renderScene);
@@ -250,8 +250,8 @@
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
             scene.add(ambientLight);
             
-            // Warm Gold Spotlight -> Adjusted to Pale Yellow to avoid orange cast
-            const spotLight = new THREE.SpotLight(0xfff0cc, 2000); // 更偏白黄色的光
+            // Warm Gold Spotlight - 增强亮度
+            const spotLight = new THREE.SpotLight(0xffd700, 3500); // 增强聚光灯 (2000 -> 3500)
             spotLight.position.set(20, 50, 20);
             spotLight.decay = 2;
             spotLight.distance = 200;
@@ -288,13 +288,13 @@
 
         // --- Particle System ---
         const createParticles = () => {
-            // Gold Material - Adjusted for "Yellow" look
+            // Gold Material - 超强自发光
             const matGold = new THREE.MeshStandardMaterial({ 
                 color: CONFIG.colors.gold, 
-                metalness: 0.8, // 稍微降低金属感，让黄色本色更透亮
-                roughness: 0.2, 
-                emissive: 0xFFFF00, // 纯黄色发光 (Pure Yellow Emissive)
-                emissiveIntensity: 2.0 // 强度适中
+                metalness: 1.0, 
+                roughness: 0.1, 
+                emissive: 0xffaa00,
+                emissiveIntensity: 6.0 // 大幅提升金球自发光 (3.0 -> 6.0)
             });
             
             const matGreen = new THREE.MeshStandardMaterial({ 
@@ -303,7 +303,6 @@
                 roughness: 0.8 
             });
             
-            // Red Material
             const matRed = new THREE.MeshStandardMaterial({ 
                 color: CONFIG.colors.red, 
                 metalness: 0.5, 
@@ -481,7 +480,8 @@
         // --- Logic Update ---
         const updateState = (delta, time) => {
             
-            const targetBloomStrength = (STATE.mode === 'FOCUS') ? 0.0 : 1.0;
+            // 动态辉光：聚焦时关闭，平时开启强辉光(2.5)
+            const targetBloomStrength = (STATE.mode === 'FOCUS') ? 0.0 : 2.5;
             bloomPass.strength += (targetBloomStrength - bloomPass.strength) * 4.0 * delta;
 
             const dummy = new THREE.Object3D();
